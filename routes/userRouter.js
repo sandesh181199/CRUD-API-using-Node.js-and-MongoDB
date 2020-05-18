@@ -8,8 +8,8 @@ const app = express();
 const userRouter = express.Router();
 userRouter.use(bodyParser.json());
 
-userRouter.route('/').
-get((req, res, next) => {
+userRouter.route('/')
+.get((req, res, next) => {
     Users.find({})
         .then((user) => {
             res.statusCode = 200;
@@ -19,11 +19,11 @@ get((req, res, next) => {
         .catch((err) => {
             next(err)
         })
-}).
-post((req, res, next) => {
+})
+.post((req, res, next) => {
     Users.create(req.body).
     then((user)=>{
-        console.log('User Created');
+        console.log('User Created!');
         res.sendStatus = 200;
         res.setHeader('content-type', 'application/json');
         res.json(user);

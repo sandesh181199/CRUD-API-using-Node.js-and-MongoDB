@@ -1,16 +1,14 @@
 var express = require('express');
-//const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const http = require('http');
 const userRouter = require('./routes/userRouter');
 var mongoose = require('mongoose');
 
-
-
 const app = express();
-//app.use(morgan('dev'));
 app.use(bodyParser.json());
 
+const hostname = 'localhost';
+const port = 3000;
 
 const url = 'mongodb://localhost:27017/usersData';
 const connect = mongoose.connect(url, {
@@ -20,18 +18,10 @@ const connect = mongoose.connect(url, {
 
 connect.then((db) => {
     console.log('Sucessfully Connected to the server');
-}, (err) => {
-    console.log(err);
-})
+},(err) => { console.log(err); })
 
-const hostname = 'localhost';
-const port = 3500;
-
-app.use(express.static(__dirname + '/public'));
-
-
+//app.use(express.static(__dirname + '/public'));
 app.use('/api/users', userRouter);
-
 
 app.use((req, res, next) => {
     res.sendStatus = 200;

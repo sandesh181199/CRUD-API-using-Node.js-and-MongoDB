@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 const hostname = 'localhost';
 const port = 3000;
 
-const url = 'mongodb://localhost:27017/usersData';
+const url = 'mongodb://sandeshvanwadi:sandesh246@ds039175.mlab.com:39175/heroku_kj33pdl1';
 const connect = mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true

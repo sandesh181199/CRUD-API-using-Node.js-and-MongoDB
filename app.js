@@ -7,7 +7,9 @@ var mongoose = require('mongoose');
 const app = express();
 app.use(bodyParser.json());
 
-//const port = process.env.PORT || 3000
+
+const hostname='localhost';
+const port = 3000;
 
 const url = 'mongodb://sandeshvanwadi:sandesh246@ds039175.mlab.com:39175/heroku_kj33pdl1';
 const connect = mongoose.connect(url, {
@@ -29,7 +31,7 @@ app.use((req, res, next) => {
 })
 
 const server = http.createServer(app);
-app.listen(process.env.PORT || 3000 , () => {
+app.listen(port,hostname, () => {
     //var port = server.address().port;
-    console.log(`server running on port`);
+    console.log(`server running on https://${hostname}:${port}`);
 })

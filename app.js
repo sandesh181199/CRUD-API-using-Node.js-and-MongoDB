@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 const app = express();
 app.use(bodyParser.json());
 
-const hostname = 'https://git.heroku.com/nodejs-crud.git';
+const hostname = '';
 const port = process.env.PORT || 3000
 
 const url = 'mongodb://sandeshvanwadi:sandesh246@ds039175.mlab.com:39175/heroku_kj33pdl1';
@@ -30,6 +30,6 @@ app.use((req, res, next) => {
 })
 
 const server = http.createServer(app);
-app.listen(port, () => {
+app.listen(hostname, port, () => {
     console.log(`server running on ${port}`)
 })
